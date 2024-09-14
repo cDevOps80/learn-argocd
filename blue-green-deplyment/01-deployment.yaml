@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: rollouts
-          image: chaitu1812/nginx:v1.0.0
+          image: chaitu1812/nginx:v2.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
