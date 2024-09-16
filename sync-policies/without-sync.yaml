@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: deploy-argocd
+      app: deploy
     replicas: 2
     template:
       metadata:
         labels:
-          name: deploy-argocd
+          app: deploy
       spec:
         containers:
           - name: c1
@@ -24,7 +24,8 @@ metadata:
   name: service-argocd
 spec:
   selector:
-    name: deploy-argocd
+    app: deploy
+    type: NodePort
   ports:
     - targetPort: 80
       port: 80
