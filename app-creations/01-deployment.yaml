@@ -12,3 +12,6 @@ spec:
     path: sync-policies
     repoURL: https://github.com/cDevOps80/learn-argocd.git
     targetRevision: main
+
+
+#
