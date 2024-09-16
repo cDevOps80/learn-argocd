@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: deploy-argocd
+spec:
+  selector:
+    matchLabels:
+      name: deploy-argocd
+    replicas: 2
+    template:
+      metadata:
+        labels:
+          name: deploy-argocd
+      spec:
+        containers:
+          - name: c1
+            image: chaitu1812/nginx:v1.0.0
+            ports:
+              - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-argocd
+spec:
+  selector:
+    name: deploy-argocd
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 32047
