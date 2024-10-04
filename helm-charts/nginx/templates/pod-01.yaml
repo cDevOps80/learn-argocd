@@ -7,14 +7,3 @@ spec:
   containers:
     - name: c1
       image: {{ .Values.image }}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: service1
-spec:
-  selector: {{- toYaml .Values.labels | nindent 4 }}
-  type: {{ .Values.service.type }}
-  ports:
-    - port: 80
-      targetPort: 80
