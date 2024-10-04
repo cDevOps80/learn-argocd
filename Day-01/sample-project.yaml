@@ -6,10 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    chart: nginx
     repoURL: https://github.com/cDevOps80/learn-argocd.git
     targetRevision: main
-    path: helm-charts
+    path: helm-charts/nginx
     helm:
       releaseName: nginx
   destination:
