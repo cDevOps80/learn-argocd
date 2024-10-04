@@ -10,7 +10,11 @@ spec:
     targetRevision: main
     path: helm-charts/nginx
     helm:
-      releaseName: nginx
+      releaseName: sample
+      parameters:
+        - name: image
+          value: nginx
+
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
