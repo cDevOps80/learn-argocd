@@ -11,6 +11,8 @@ spec:
     path: helm-charts/nginx
     helm:
       releaseName: sample
+      valueFiles: ../values/values.yaml
+
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
