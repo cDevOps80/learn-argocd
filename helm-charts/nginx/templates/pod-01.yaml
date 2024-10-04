@@ -9,7 +9,7 @@ spec:
       image: {{ .Values.image }}
 ---
 apiVersion: v1
-kind: service
+kind: Service
 metadata:
   name: service1
 spec:
