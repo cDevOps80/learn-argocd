@@ -1,0 +1,4 @@
+labels:
+  name: nginx
+image: nginx
+type: NodePort

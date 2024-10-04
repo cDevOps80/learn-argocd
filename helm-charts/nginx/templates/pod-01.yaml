@@ -2,7 +2,19 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: {{ .Release.Name }}
+  labels: {{- toYaml .Values.labels | nindent 4 }}
 spec:
   containers:
     - name: c1
       image: {{ .Values.image }}
+---
+apiVersion: v1
+kind: service
+metadata:
+  name: service1
+spec:
+  selector: {{- toYaml .Values.labels | nindent 4 }}
+  type: {{ service.type }}
+  ports:
+    - port: 80
+      targetPort: 80
