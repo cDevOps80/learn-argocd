@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: user
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RoboShop1/roboshop-helm.git
+    targetRevision: main
+    path: roboshop-v1
+    helm:
+      releaseName: user
+      valueFiles:
+        - ../env-dev/user.yaml
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: dev
