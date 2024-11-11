@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend
+  namespace: dev
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RoboShop1/roboshop-helm.git
+    targetRevision: main
+    path: roboshop-v1
+    helm:
+      releaseName: frontend
+      valueFiles:
+        - ../env-dev/frontend.yaml
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: dev
